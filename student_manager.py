@@ -69,6 +69,16 @@ class StudentGradeManager:
             avg = self.calculate_average(name)
             print(f"  {name}: {grades} → 平均 {avg:.2f}点" if avg else f"  {name}: {grades}")
 
+    def export_to_csv(self, filename="grades.csv"):
+        """成績データをCSVファイルにエクスポート"""
+        with open(filename, 'w', newline='', encoding='utf-8') as f:
+            writer = csv.writer(f)
+            writer.writerow(['生徒名', '成績リスト', '平均点'])
+            for name, grades in self.students.items():
+                avg = self.calculate_average(name)
+                writer.writerow([name, grades, f"{avg:.2f}" if avg else ""])
+        print(f"📁 CSVエクスポート完了 → {filename}")
+
 
 # ==================== テスト実行（課題提出時に便利） ====================
 if __name__ == "__main__":
@@ -91,3 +101,5 @@ if __name__ == "__main__":
 # === 追加機能：クラス平均点を表示（第1回修正用）===
     print("\n=== 追加テスト ===")
     print(f"現在のクラス平均点: {manager.get_class_average():.2f}点")
+    
+    manager.export_to_csv()
