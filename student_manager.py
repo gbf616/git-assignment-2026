@@ -87,3 +87,7 @@ if __name__ == "__main__":
     manager.export_to_csv()
     
     print("\n🎉 StudentGradeManager の全機能テスト完了！")
+
+# === 追加機能：クラス平均点を表示（第1回修正用）===
+    print("\n=== 追加テスト ===")
+    print(f"現在のクラス平均点: {manager.get_class_average():.2f}点")
