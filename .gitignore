@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+*.pyo
+grades.csv
+.DS_Store
+.vscode/
